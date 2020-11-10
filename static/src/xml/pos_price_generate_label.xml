@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="TareScreenWidget">
+        <div class='tare-screen screen'>
+            <div class='screen-content'>
+                <div class='top-content'>
+                     <span class='button back'>
+                        <i class='fa fa-angle-double-left'></i>
+                        Back
+                    </span>
+                    <h1>Print a price label</h1>
+                </div>
+                <div class="centered-content">
+                    <div class="pos-tare-label-container"></div>
+                    <div class='print-label'>
+                        Print
+                        <i class='fa fa-angle-double-right'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="PosTareLabel">
+        <div class="pos-center-align">
+            <div class="pos-tare-paper">
+                <div class="pos-tare-label">
+                    <h1><t t-esc="widget.commercial_name()" /></h1>
+                    <span>Reg. sanitario:___________</span>
+                    <span>Lote:_________________</span>
+                    <span>Empacado:_________________</span>
+                    <span class="caption"><t t-esc="widget.product_name()" /></span>
+                    <span class="caption">Cantidad: <t t-esc="widget.product_quantity()" /> <t t-esc="widget.product_unit()" /></span>
+                    <h1><t t-esc="widget.format_currency(widget.product_price())" /></h1>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="TareScreenButton">
+        <t t-if="widget.pos.config.iface_product_label">
+            <span class="control-button">
+            <i class="fa fa-print"></i>
+            Print a product label
+        </span>
+        </t>
+    </t>
+
+</templates>
